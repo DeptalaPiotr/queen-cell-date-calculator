@@ -1,10 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> List Notes </title>
 </head>
-<body>
+<style>
+table.GeneratedTable {
+  width: 25%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
 
-</body>
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.GeneratedTable thead {
+  background-color: #ffc800;
+}
+</style>
+
+<!-- HTML Code: Place this code in the document's body (between the 'body' tags) where the table should appear -->
+<table class="GeneratedTable">
+    <thead>
+    <tr>
+        <th>Podaj datę przekładania larw jednodniowych (dd/mm/rrrr)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>  <form action="/notes" method="post">
+            <label for="title">Data:
+                </br>(dd/mm/rrrr)</label><br>
+            <input type="text" id="title" name="title" value=" "><br>
+        </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</br>
+</br>
+
+
+
+<!-- CSS Code: Place this code in the document's head (between the 'head' tags) -->
+<style>
+table.GeneratedTable {
+  width: 80%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  color: #000000;
+}
+
+table.GeneratedTable td, table.GeneratedTable th {
+  border-width: 2px;
+  border-color: #ffcc00;
+  border-style: solid;
+  padding: 3px;
+}
+
+table.GeneratedTable thead {
+  background-color: #ffcc00;
+}
+</style>
+
+<!-- HTML Code: Place this code in the document's body (between the 'body' tags) where the table should appear -->
+
+<table class="GeneratedTable">
+    <thead>
+    <tr>
+        <th>Kolejne kroki</th>
+        <th>Data</th>
+        <th>Pogoda</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Izolacja matki</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Przekładanie larw jednodniowych</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    <tr>
+        <td>Zasklepienie mateczników</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    <tr>
+        <td>Histoliza</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    <tr>
+        <td>Izolacja mateczników</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    <tr>
+        <td>Możliwe wygryzanie matek</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    <tr>
+        <td>Wygryzanie matek</td>
+        <td>Cell</td>
+        <td>Cell</td>
+    </tr>
+    </tbody>
+</table>
+<!-- Codes by Quackit.com -->
 </html>
