@@ -3,6 +3,7 @@ package pl.deptala.piotr.queencelldatecalculator.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.deptala.piotr.queencelldatecalculator.service.CalenderService;
 
@@ -15,17 +16,31 @@ public class CalenderController {
 
     private static final Logger LOGGER = Logger.getLogger(CalenderController.class.getName());
 
-//
-//    // Date
-//    @GetMapping
-//    public void date(ModelMap modelMap){
-//        LocalDate toDay = LocalDate.now();
-//        modelMap.addAttribute("toDay",toDay);
-//    }
+    private CalenderService calenderService;
+
+    public CalenderController(CalenderService calenderService) {
+        this.calenderService = calenderService;
+    }
+
 
     // C - create
-    public void create() {
+    @PostMapping
+    public void beeQueenIsolation(LocalDate localDate,ModelMap modelMap) {
         LOGGER.info("create()");
+        LocalDate beeQueenIsolation = calenderService.beeQueenIsolation(localDate);
+        modelMap.addAttribute("beeQueenIsolation",beeQueenIsolation);
+        LocalDate larvaeTransfer = calenderService.larvaeTransfer(localDate);
+        modelMap.addAttribute("larvaeTransfer",larvaeTransfer);
+        LocalDate sealingWax = calenderService.sealingWax(localDate);
+        modelMap.addAttribute("sealingWax",sealingWax);
+        LocalDate histolysis = calenderService.histolysis(localDate);
+        modelMap.addAttribute("histolysis",histolysis);
+        LocalDate insulation = calenderService.insulation(localDate);
+        modelMap.addAttribute("insulation",insulation);
+        LocalDate possibleQueenHatching = calenderService.possibleQueenHatching(localDate);
+        modelMap.addAttribute("possibleQueenHatching",possibleQueenHatching);
+        LocalDate queenHatching = calenderService.queenHatching(localDate);
+        modelMap.addAttribute("queenHatching",queenHatching);
         LOGGER.info("create(...)");
     }
 

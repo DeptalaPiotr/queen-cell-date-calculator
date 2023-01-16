@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title> List Notes </title>
 </head>
+
 <style>
 table.GeneratedTable {
   width: 25%;
@@ -36,10 +37,11 @@ table.GeneratedTable thead {
     </thead>
     <tbody>
     <tr>
-        <td>  <form action="/notes" method="post">
-            <label for="title">Data:
+        <td>  <form action="/calendar" method="post">
+            <label for="localDate">Data:
                 </br>(dd/mm/rrrr)</label><br>
-            <input type="text" id="title" name="title" value=" "><br>
+            <input type="date" id="localDate" name="localDate" value=><br>
+            <input type="submit" value="Submit">
         </form>
         </td>
     </tr>
@@ -87,37 +89,37 @@ table.GeneratedTable thead {
     <tbody>
     <tr>
         <td>Izolacja matki</td>
-        <td>2</td>
+        <td><span th:text="${beeQueenIsolation}"> </span></td>
         <td>3</td>
     </tr>
     <tr>
         <td>Przekładanie larw jednodniowych</td>
-        <td>Cell</td>
+        <td><span th:text="${larvaeTransfer}"> </span></td>
         <td>Cell</td>
     </tr>
     <tr>
         <td>Zasklepienie mateczników</td>
-        <td>Cell</td>
+        <td><span th:text="${sealingWax}"> </span></td>
         <td>Cell</td>
     </tr>
     <tr>
         <td>Histoliza</td>
-        <td>Cell</td>
+        <td><span th:text="${histolysis}"> </span></td>
         <td>Cell</td>
     </tr>
     <tr>
         <td>Izolacja mateczników</td>
-        <td>Cell</td>
+        <td><span th:text="${insulation}"> </span></td>
         <td>Cell</td>
     </tr>
     <tr>
         <td>Możliwe wygryzanie matek</td>
-        <td>Cell</td>
+        <td><span th:text="${possibleQueenHatching}"> </span></td>
         <td>Cell</td>
     </tr>
     <tr>
         <td>Wygryzanie matek</td>
-        <td>Cell</td>
+        <td><span th:text="${queenHatching}"> </span></td>
         <td>Cell</td>
     </tr>
     </tbody>
