@@ -21,48 +21,48 @@ public class CalenderService {
 
     // Larvae Transfer
     public LocalDate larvaeTransfer(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
-        LOGGER.info("create(...)");
+        LOGGER.info("larvaeTransfer(" + localDate + ")");
+        LOGGER.info("larvaeTransfer(...)");
         return localDate;
     }
 
     // Sealing wax
     public LocalDate sealingWax(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
+        LOGGER.info("sealingWax(" + localDate + ")");
         LocalDate date = localDate.plusDays(5);
-        LOGGER.info("create(...)" + date);
+        LOGGER.info("sealingWax(...)" + date);
         return date;
     }
 
     // Histolysis
     public LocalDate histolysis(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
+        LOGGER.info("histolysis(" + localDate + ")");
         LocalDate date = localDate.plusDays(7);
-        LOGGER.info("create(...)" + date);
+        LOGGER.info("histolysis(...)" + date);
         return date;
     }
 
     // Insulation
     public LocalDate insulation(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
+        LOGGER.info("insulation(" + localDate + ")");
         LocalDate date = localDate.plusDays(9);
-        LOGGER.info("create(...)" + date);
+        LOGGER.info("insulation(...)" + date);
         return date;
     }
 
     // Possible Queen Hatching
     public LocalDate possibleQueenHatching(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
+        LOGGER.info("possibleQueenHatching(" + localDate + ")");
         LocalDate date = localDate.plusDays(11);
-        LOGGER.info("create(...)" + date);
+        LOGGER.info("possibleQueenHatching(...)" + date);
         return date;
     }
 
     //  Queen Hatching
     public LocalDate queenHatching(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
+        LOGGER.info("queenHatching(" + localDate + ")");
         LocalDate date = localDate.plusDays(12);
-        LOGGER.info("create(...)" + date);
+        LOGGER.info("queenHatching(...)" + date);
         return date;
     }
 
