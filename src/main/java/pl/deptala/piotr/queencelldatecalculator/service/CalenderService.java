@@ -3,6 +3,7 @@ package pl.deptala.piotr.queencelldatecalculator.service;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 @Service
@@ -11,19 +12,44 @@ public class CalenderService {
     private static final Logger LOGGER = Logger.getLogger(CalenderService.class.getName());
 
 
-    // C - create
-    public LocalDate beeQueenIsolation(LocalDate localDate) {
-        LOGGER.info("create(" + localDate + ")");
-        LocalDate date = localDate.minusDays(4);
-        LOGGER.info("create(...)" + date);
-        return date;
+    // Bee Queen Isolation
+    public LocalDateTime beeQueenIsolation(LocalDateTime localDate) {
+        LOGGER.info("beeQueenIsolation(" + localDate + ")");
+        LocalDateTime date = localDate.minusDays(4);
+        LocalDateTime dateTime = date.plusHours(16);
+        LOGGER.info("beeQueenIsolation(...)" + dateTime);
+        return dateTime;
+    }
+
+    // Isolate the queen bee from the raising colony
+    public LocalDateTime raisingColony(LocalDateTime localDate) {
+        LOGGER.info("raisingColony(" + localDate + ")");
+        LocalDateTime localDateTime = localDate.minusHours(3);
+        LOGGER.info("raisingColony(...) " + localDateTime);
+        return localDateTime;
     }
 
     // Larvae Transfer
-    public LocalDate larvaeTransfer(LocalDate localDate) {
+    public LocalDateTime larvaeTransfer(LocalDateTime localDate) {
         LOGGER.info("larvaeTransfer(" + localDate + ")");
         LOGGER.info("larvaeTransfer(...)");
         return localDate;
+    }
+
+    // Returning the queen to the rearing family and isolating her from the queen cell frame
+    public LocalDateTime returningQueen(LocalDateTime localDateTime) {
+        LOGGER.info("returningQueen(" + localDateTime + ")");
+        LocalDateTime returningQueen = localDateTime.plusHours(20);
+        LOGGER.info("returningQueen(...)" + returningQueen);
+        return returningQueen;
+    }
+
+    // Returning the mother to the raising family and isolating her from the nursery frame - no later than
+    public LocalDateTime returningQueenNoLater(LocalDateTime localDateTime) {
+        LOGGER.info("returningQueenNoLater(" + localDateTime + ")");
+        LocalDateTime returningQueenNoLater = localDateTime.plusHours(48);
+        LOGGER.info("returningQueenNoLater(...)" + returningQueenNoLater);
+        return returningQueenNoLater;
     }
 
     // Sealing wax
