@@ -85,3 +85,9 @@ public class CalenderController {
         return "calendar.html";
     }
 }
+// TODO: 18.01.2023
+// Poszukanie darmowej API dla prognozy pogody
+// Implementacja Weather API
+// Dodanie error.html
+// Testy aplikacji
+// Dodanie opcji wydrukowania tabeli
