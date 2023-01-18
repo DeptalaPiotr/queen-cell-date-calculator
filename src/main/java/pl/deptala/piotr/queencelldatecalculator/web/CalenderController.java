@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.deptala.piotr.queencelldatecalculator.service.CalenderService;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 @Controller
@@ -22,25 +23,39 @@ public class CalenderController {
         this.calenderService = calenderService;
     }
 
-
     // C - create
     @PostMapping
-    public void beeQueenIsolation(LocalDate localDate,ModelMap modelMap) {
+    public void beeQueenIsolation(LocalDateTime localDate, ModelMap modelMap) {
         LOGGER.info("create()");
-        LocalDate beeQueenIsolation = calenderService.beeQueenIsolation(localDate);
-        modelMap.addAttribute("beeQueenIsolation",beeQueenIsolation);
-        LocalDate larvaeTransfer = calenderService.larvaeTransfer(localDate);
-        modelMap.addAttribute("larvaeTransfer",larvaeTransfer);
-        LocalDate sealingWax = calenderService.sealingWax(localDate);
-        modelMap.addAttribute("sealingWax",sealingWax);
-        LocalDate histolysis = calenderService.histolysis(localDate);
-        modelMap.addAttribute("histolysis",histolysis);
-        LocalDate insulation = calenderService.insulation(localDate);
-        modelMap.addAttribute("insulation",insulation);
-        LocalDate possibleQueenHatching = calenderService.possibleQueenHatching(localDate);
-        modelMap.addAttribute("possibleQueenHatching",possibleQueenHatching);
-        LocalDate queenHatching = calenderService.queenHatching(localDate);
-        modelMap.addAttribute("queenHatching",queenHatching);
+        LocalDateTime beeQueenIsolation = calenderService.beeQueenIsolation(localDate);
+        modelMap.addAttribute("beeQueenIsolation", beeQueenIsolation);
+
+        LocalDateTime raisingColony = calenderService.raisingColony(localDate);
+        modelMap.addAttribute("raisingColony", raisingColony);
+
+        LocalDateTime larvaeTransfer = calenderService.larvaeTransfer(localDate);
+        modelMap.addAttribute("larvaeTransfer", larvaeTransfer);
+
+        LocalDateTime returningQueen = calenderService.returningQueen(localDate);
+        modelMap.addAttribute("returningQueen", returningQueen);
+
+        LocalDateTime returningQueenNoLater = calenderService.returningQueenNoLater(localDate);
+        modelMap.addAttribute("returningQueenNoLater", returningQueenNoLater);
+
+        LocalDate sealingWax = calenderService.sealingWax(LocalDate.from(localDate));
+        modelMap.addAttribute("sealingWax", sealingWax);
+
+        LocalDate histolysis = calenderService.histolysis(LocalDate.from(localDate));
+        modelMap.addAttribute("histolysis", histolysis);
+
+        LocalDate insulation = calenderService.insulation(LocalDate.from(localDate));
+        modelMap.addAttribute("insulation", insulation);
+
+        LocalDate possibleQueenHatching = calenderService.possibleQueenHatching(LocalDate.from(localDate));
+        modelMap.addAttribute("possibleQueenHatching", possibleQueenHatching);
+
+        LocalDate queenHatching = calenderService.queenHatching(LocalDate.from(localDate));
+        modelMap.addAttribute("queenHatching", queenHatching);
         LOGGER.info("create(...)");
     }
 
@@ -70,3 +85,9 @@ public class CalenderController {
         return "calendar.html";
     }
 }
+// TODO: 18.01.2023
+// Poszukanie darmowej API dla prognozy pogody
+// Implementacja Weather API
+// Dodanie error.html
+// Testy aplikacji
+// Dodanie opcji wydrukowania tabeli
