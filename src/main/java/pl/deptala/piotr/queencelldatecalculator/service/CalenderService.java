@@ -1,6 +1,7 @@
 package pl.deptala.piotr.queencelldatecalculator.service;
 
 import org.springframework.stereotype.Service;
+import pl.deptala.piotr.queencelldatecalculator.web.model.QueenBeesReproducionCalendarModel;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +12,18 @@ public class CalenderService {
 
     private static final Logger LOGGER = Logger.getLogger(CalenderService.class.getName());
 
+    public QueenBeesReproducionCalendarModel calculate(LocalDateTime calendarDate) {
+        QueenBeesReproducionCalendarModel queenBeesReproducionCalendarModel = new QueenBeesReproducionCalendarModel();
+
+        LocalDateTime date = calendarDate.minusDays(4);
+        LocalDateTime beeQueenIsolation = date.plusHours(16);
+        queenBeesReproducionCalendarModel.setBeeQueenIsolation(beeQueenIsolation);
+
+        LocalDateTime raisingColony = calendarDate.minusHours(3);
+        queenBeesReproducionCalendarModel.setRaisingColony(raisingColony);
+
+        return queenBeesReproducionCalendarModel;
+    }
 
     // Bee Queen Isolation
     public LocalDateTime beeQueenIsolation(LocalDateTime localDate) {
