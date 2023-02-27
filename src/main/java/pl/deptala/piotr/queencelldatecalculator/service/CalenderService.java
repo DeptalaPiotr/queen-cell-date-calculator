@@ -1,7 +1,7 @@
 package pl.deptala.piotr.queencelldatecalculator.service;
 
 import org.springframework.stereotype.Service;
-import pl.deptala.piotr.queencelldatecalculator.web.model.QueenBeesReproducionCalendarModel;
+import pl.deptala.piotr.queencelldatecalculator.web.model.QueenBeesReproductionCalendarModel;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,44 +12,32 @@ public class CalenderService {
 
     private static final Logger LOGGER = Logger.getLogger(CalenderService.class.getName());
 
-    public QueenBeesReproducionCalendarModel calculate(LocalDateTime calendarDate) {
-        QueenBeesReproducionCalendarModel queenBeesReproducionCalendarModel = new QueenBeesReproducionCalendarModel();
+    // C - create
+    public QueenBeesReproductionCalendarModel calculate(LocalDateTime calendarDate) {
+        QueenBeesReproductionCalendarModel queenBeesReproductionCalendarModel = new QueenBeesReproductionCalendarModel();
 
+        // Bee Queen Isolation
         LocalDateTime date = calendarDate.minusDays(4);
         LocalDateTime beeQueenIsolation = date.plusHours(16);
-        queenBeesReproducionCalendarModel.setBeeQueenIsolation(beeQueenIsolation);
+        queenBeesReproductionCalendarModel.setBeeQueenIsolation(beeQueenIsolation);
 
+        // Isolate the queen bee from the raising colony
         LocalDateTime raisingColony = calendarDate.minusHours(3);
-        queenBeesReproducionCalendarModel.setRaisingColony(raisingColony);
+        queenBeesReproductionCalendarModel.setRaisingColony(raisingColony);
 
-        return queenBeesReproducionCalendarModel;
+        // Larvae Transfer
+        queenBeesReproductionCalendarModel.setLarvaeTransfer(calendarDate);
+
+        // Returning the queen to the rearing family and isolating her from the queen cell frame
+        LocalDateTime returningQueen = calendarDate.plusHours(20);
+        queenBeesReproductionCalendarModel.setReturningQueen(returningQueen);
+
+
+
+        return queenBeesReproductionCalendarModel;
     }
 
-    // Bee Queen Isolation
-    public LocalDateTime beeQueenIsolation(LocalDateTime localDate) {
-        LOGGER.info("beeQueenIsolation(" + localDate + ")");
-        LocalDateTime date = localDate.minusDays(4);
-        LocalDateTime dateTime = date.plusHours(16);
-        LOGGER.info("beeQueenIsolation(...)" + dateTime);
-        return dateTime;
-    }
 
-    // Isolate the queen bee from the raising colony
-    public LocalDateTime raisingColony(LocalDateTime localDate) {
-        LOGGER.info("raisingColony(" + localDate + ")");
-        LocalDateTime localDateTime = localDate.minusHours(3);
-        LOGGER.info("raisingColony(...) " + localDateTime);
-        return localDateTime;
-    }
-
-    // Larvae Transfer
-    public LocalDateTime larvaeTransfer(LocalDateTime localDate) {
-        LOGGER.info("larvaeTransfer(" + localDate + ")");
-        LOGGER.info("larvaeTransfer(...)");
-        return localDate;
-    }
-
-    // Returning the queen to the rearing family and isolating her from the queen cell frame
     public LocalDateTime returningQueen(LocalDateTime localDateTime) {
         LOGGER.info("returningQueen(" + localDateTime + ")");
         LocalDateTime returningQueen = localDateTime.plusHours(20);
