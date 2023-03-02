@@ -14,6 +14,8 @@ public class CalenderService {
 
     // C - create
     public QueenBeesReproductionCalendarModel calculate(LocalDateTime calendarDate) {
+
+        LOGGER.info("read(" + calendarDate + ")");
         QueenBeesReproductionCalendarModel queenBeesReproductionCalendarModel = new QueenBeesReproductionCalendarModel();
 
         // Bee Queen Isolation
@@ -32,66 +34,35 @@ public class CalenderService {
         LocalDateTime returningQueen = calendarDate.plusHours(20);
         queenBeesReproductionCalendarModel.setReturningQueen(returningQueen);
 
+        // Returning the mother to the raising family and isolating her from the nursery frame - no later than
+        LocalDateTime returningQueenNoLater = calendarDate.plusHours(48);
+        queenBeesReproductionCalendarModel.setReturningQueenNoLater(returningQueenNoLater);
 
+        // Sealing wax
+        LocalDateTime sealingWax = calendarDate.plusDays(5);
+        queenBeesReproductionCalendarModel.setSealingWax(sealingWax);
+
+        // Histolysis
+        LocalDateTime histolysis = calendarDate.plusDays(7);
+        queenBeesReproductionCalendarModel.setHistolysis(histolysis);
+
+        // Insulation
+        LocalDateTime insulation = calendarDate.plusDays(9);
+        queenBeesReproductionCalendarModel.setInsulation(insulation);
+
+        // Possible Queen Hatching
+        LocalDateTime possibleQueenHatching = calendarDate.plusDays(11);
+        queenBeesReproductionCalendarModel.setPossibleQueenHatching(possibleQueenHatching);
+
+        //  Queen Hatching
+        LocalDateTime queenHatching = calendarDate.plusDays(12);
+        queenBeesReproductionCalendarModel.setQueenHatching(queenHatching);
+
+        LOGGER.info("read(...) " + queenBeesReproductionCalendarModel);
 
         return queenBeesReproductionCalendarModel;
     }
 
-
-    public LocalDateTime returningQueen(LocalDateTime localDateTime) {
-        LOGGER.info("returningQueen(" + localDateTime + ")");
-        LocalDateTime returningQueen = localDateTime.plusHours(20);
-        LOGGER.info("returningQueen(...)" + returningQueen);
-        return returningQueen;
-    }
-
-    // Returning the mother to the raising family and isolating her from the nursery frame - no later than
-    public LocalDateTime returningQueenNoLater(LocalDateTime localDateTime) {
-        LOGGER.info("returningQueenNoLater(" + localDateTime + ")");
-        LocalDateTime returningQueenNoLater = localDateTime.plusHours(48);
-        LOGGER.info("returningQueenNoLater(...)" + returningQueenNoLater);
-        return returningQueenNoLater;
-    }
-
-    // Sealing wax
-    public LocalDate sealingWax(LocalDate localDate) {
-        LOGGER.info("sealingWax(" + localDate + ")");
-        LocalDate date = localDate.plusDays(5);
-        LOGGER.info("sealingWax(...)" + date);
-        return date;
-    }
-
-    // Histolysis
-    public LocalDate histolysis(LocalDate localDate) {
-        LOGGER.info("histolysis(" + localDate + ")");
-        LocalDate date = localDate.plusDays(7);
-        LOGGER.info("histolysis(...)" + date);
-        return date;
-    }
-
-    // Insulation
-    public LocalDate insulation(LocalDate localDate) {
-        LOGGER.info("insulation(" + localDate + ")");
-        LocalDate date = localDate.plusDays(9);
-        LOGGER.info("insulation(...)" + date);
-        return date;
-    }
-
-    // Possible Queen Hatching
-    public LocalDate possibleQueenHatching(LocalDate localDate) {
-        LOGGER.info("possibleQueenHatching(" + localDate + ")");
-        LocalDate date = localDate.plusDays(11);
-        LOGGER.info("possibleQueenHatching(...)" + date);
-        return date;
-    }
-
-    //  Queen Hatching
-    public LocalDate queenHatching(LocalDate localDate) {
-        LOGGER.info("queenHatching(" + localDate + ")");
-        LocalDate date = localDate.plusDays(12);
-        LOGGER.info("queenHatching(...)" + date);
-        return date;
-    }
 
     // R - read
     public void read() {
