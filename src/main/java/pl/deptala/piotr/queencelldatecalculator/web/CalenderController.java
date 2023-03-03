@@ -27,11 +27,12 @@ public class CalenderController {
     // C - create
     @GetMapping
     public String createView() {
+        LOGGER.info("createView()");
         return "calendar.html";
     }
 
     @PostMapping
-    public String beeQueenIsolation(LocalDateTime localDate, ModelMap modelMap) {
+    public String create(LocalDateTime localDate, ModelMap modelMap) {
         LOGGER.info("create(" + localDate + ")");
         QueenBeesReproductionCalendarModel calculate = calenderService.calculate(localDate);
         modelMap.addAttribute("calculate", calculate);

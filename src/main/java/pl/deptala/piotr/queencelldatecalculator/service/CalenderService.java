@@ -62,29 +62,4 @@ public class CalenderService {
 
         return queenBeesReproductionCalendarModel;
     }
-
-
-    // R - read
-    public void read() {
-        LOGGER.info("read()");
-        LOGGER.info("read(...)");
-    }
-
-    // U - update
-    public void update() {
-        LOGGER.info("update()");
-        LOGGER.info("update(...)");
-    }
-
-    // D - delete
-    public void delete() {
-        LOGGER.info("delete()");
-        LOGGER.info("delete(...)");
-    }
-
-    // L - list
-    public void list() {
-        LOGGER.info("list()");
-        LOGGER.info("list(...)");
-    }
 }
