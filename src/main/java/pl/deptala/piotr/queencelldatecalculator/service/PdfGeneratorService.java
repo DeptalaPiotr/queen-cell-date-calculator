@@ -1,7 +1,6 @@
 package pl.deptala.piotr.queencelldatecalculator.service;
 
 import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfTable;
 import com.lowagie.text.pdf.PdfWriter;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class PdfGeneratorService {
 
     public void export(HttpServletResponse response, LocalDateTime localDateTime) throws IOException {
 
-        LOGGER.info("export(" + response + ")");
+        LOGGER.info("export(" + localDateTime + ")");
 
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());

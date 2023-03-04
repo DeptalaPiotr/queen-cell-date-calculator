@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class QueenBeesReproductionCalendarModel {
-    LocalDate localDate;
+
     LocalDateTime beeQueenIsolation;
     LocalDateTime raisingColony;
     LocalDateTime larvaeTransfer;
