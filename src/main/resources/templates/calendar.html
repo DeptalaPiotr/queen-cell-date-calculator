@@ -53,6 +53,7 @@ table.GeneratedTable thead {
                                 </br>(dd/mm/rrrr) (gg:mm)</label><br>
                             <input type="datetime-local" id="localDate" name="localDate" value=><br>
                             <!--            jQuery date picker-->
+
                             <input type="submit" value="Submit">
                         </form>
                     </td>
@@ -164,7 +165,11 @@ table.GeneratedTable thead {
             </div>
         </table>
         <div>
-            <a href="#" th:href="@{/pdf/generate}"> Drukuj </a>
+            <form action="/calendar/pdf/generate" method="post">
+<!--                <label for="localDateTime">Data:-->
+                <input type="datetime-local" id="localDateTime" name="localDateTime" value=${localDate}><br>
+                <input type="submit" value="Drukuj">
+            </form>
         </div>
     </div>
 </body>

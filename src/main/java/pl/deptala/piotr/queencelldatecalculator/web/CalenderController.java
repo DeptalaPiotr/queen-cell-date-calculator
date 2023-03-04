@@ -47,9 +47,9 @@ public class CalenderController {
         return "calendar.html";
     }
 
-    @GetMapping("/pdf/generate")
-    public void generatePDF(HttpServletResponse response) throws IOException {
-        response.setContentType("application/pdf");
+    @PostMapping("/pdf/generate")
+    public void generatePDF(HttpServletResponse response, LocalDateTime localDateTime) throws IOException {
+        response.setContentType("/calendar");
         DateFormat dateFormatter = new SimpleDateFormat("dd-mm-yyyy:hh:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
 
@@ -57,7 +57,7 @@ public class CalenderController {
         String headerValue = "attachment; filename=pdf_" + currentDateTime + "+pdf";
         response.setHeader(headerKey,headerValue);
 
-        this.pdfGeneratorService.export(response);
+        this.pdfGeneratorService.export(response, localDateTime);
     }
 }
 // TODO: 18.01.2023
